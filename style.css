@@ -1,0 +1,262 @@
+/* Custom Styles for Kerala Heritage Theme */
+body {
+    font-family: 'Inter', sans-serif;
+    background: linear-gradient(135deg, #fdfaf6, #fffbf7); /* Subtle warm cream background */
+    color: #333;
+    line-height: 1.6;
+    scroll-behavior: smooth;
+    opacity: 0; /* Initially hidden for fade-in effect */
+    transition: opacity 1s ease-in-out; /* Smooth fade-in for content */
+
+    /* Overall Kerala-inspired pattern (subtle) */
+    background-image: url('data:image/svg+xml,%3Csvg width="80" height="80" viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="%23eee6da" fill-opacity="0.4"%3E%3Cpath d="M10 0h20L10 30V0zm10 40h20L30 70V40zM40 0h20L40 30V0zm10 40h20L60 70V40z"/%3E%3C/g%3E%3C/svg%3E'); /* Simple geometric pattern */
+    background-repeat: repeat;
+}
+body.loaded {
+    opacity: 1; /* Fade in on load */
+}
+h1, h2, h3, h4 {
+    font-family: 'Playfair Display', serif;
+}
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1rem;
+}
+.section {
+    background-color: #ffffff;
+    border-radius: 1.5rem;
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    margin-bottom: 2rem;
+    padding: 2.5rem;
+    border: 1px solid #f0f0f0; /* Lighter border */
+    transition: all 0.3s ease-in-out; /* Smooth transition for section elements */
+}
+.section:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 25px 30px -5px rgba(0, 0, 0, 0.15), 0 12px 12px -5px rgba(0, 0, 0, 0.06);
+}
+.btn-primary {
+    background-color: #A52A2A; /* IndianRed - a deep maroon/red */
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.75rem;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none; /* Ensure buttons are not underlined if used as links */
+}
+.btn-primary:hover {
+    background-color: #8B0000; /* Darker red */
+    transform: translateY(-2px);
+}
+.btn-secondary {
+    background-color: #DAA520; /* Goldenrod - a rich gold */
+    color: #4B371C; /* Dark brown for text on gold */
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.75rem;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border: 1px solid #B8860B; /* Darker goldenrod border */
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none; /* Ensure buttons are not underlined if used as links */
+}
+.btn-secondary:hover {
+    background-color: #B8860B; /* Darker goldenrod */
+    color: white;
+    transform: translateY(-2px);
+}
+.icon-link {
+    display: inline-flex;
+    align-items: center;
+    color: #2E8B57; /* SeaGreen - a nice dark green */
+    text-decoration: none;
+    transition: color 0.3s ease;
+    font-weight: 500;
+}
+.icon-link:hover {
+    color: #3CB371; /* MediumSeaGreen */
+}
+/* Mobile-optimized grid item for nearby attractions */
+.grid-item {
+    background-color: #fcfcfc;
+    padding: 0.75rem 1rem; /* Slightly more horizontal padding */
+    border-radius: 0.75rem;
+    border: 1px solid #e0e0e0;
+    display: flex;
+    flex-direction: row; /* Horizontal layout */
+    align-items: center;
+    justify-content: space-between; /* Space out items */
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    font-size: 0.8rem;
+    min-height: 50px; /* Ensure a consistent height for rectangle shape */
+}
+.grid-item:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 12px -3px rgba(0, 0, 0, 0.08), 0 3px 5px -2px rgba(0, 0, 0, 0.03);
+}
+.grid-item i {
+    font-size: 1.25rem; /* Further reduced icon size for mobile */
+    color: #2E8B57;
+    margin-right: 0.75rem; /* Space between icon and text */
+    flex-shrink: 0; /* Prevent icon from shrinking */
+}
+.grid-item .place-info {
+    flex-grow: 1; /* Allow text to take available space */
+    text-align: left;
+    margin-right: 0.5rem; /* Space between text and map link */
+}
+.grid-item .place-info p {
+    margin-bottom: 0; /* Remove extra margin from paragraph */
+}
+.grid-item .map-link {
+    font-size: 0.7rem; /* Smaller map link text */
+    flex-shrink: 0; /* Prevent link from shrinking */
+}
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.modal-content {
+    background-color: #fefefe;
+    margin: auto;
+    padding: 2.5rem;
+    border-radius: 1.5rem;
+    width: 90%;
+    max-width: 550px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.25), 0 6px 6px rgba(0,0,0,0.15);
+    text-align: center;
+    position: relative;
+}
+.close-button {
+    color: #888;
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    font-size: 1.75rem;
+    font-weight: bold;
+    cursor: pointer;
+}
+.close-button:hover,
+.close-button:focus {
+    color: #555;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Specific styling for the Reception section to give it more weight */
+.reception-section {
+    border-left: 8px solid #B8860B; /* Goldenrod left border */
+    background-color: #fefdf9; /* Slightly off-white for prominence */
+}
+.reception-section h2 {
+    color: #A52A2A; /* Stronger heading color */
+}
+.reception-intro {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.25rem;
+    color: #4B371C; /* Dark brown */
+    margin-bottom: 1.5rem;
+    line-height: 1.8;
+    font-style: italic;
+}
+
+/* Hero Section Specific Colors */
+.hero-text-sub {
+    color: #8B4513; /* SaddleBrown */
+}
+.hero-text-main {
+    color: #A52A2A; /* IndianRed */
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.2); /* Subtle shadow for names */
+}
+.hero-text-names {
+    color: #DAA520; /* Goldenrod */
+    text-shadow: 3px 3px 6px rgba(0,0,0,0.3); /* More pronounced shadow for names */
+    line-height: 1; /* Adjust line height for larger text */
+}
+
+/* Best Compliments Section Highlight */
+.best-compliments-section {
+    font-size: 1.3rem; /* Slightly larger font size */
+    font-weight: 700; /* Bolder */
+    color: #4B371C; /* Dark brown for prominence */
+    padding: 0.75rem 1.5rem; /* Padding around the text */
+    border-radius: 1rem; /* Rounded corners */
+    background-color: #ffeccf; /* Very light gold/cream background */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15); /* More prominent shadow */
+    border: 2px solid #DAA520; /* Gold border */
+    margin: 2rem auto; /* Center with margin, added more top margin */
+    display: inline-block; /* To contain background and border */
+    max-width: 90%; /* Max width for responsiveness */
+}
+
+/* Contact Info Styling */
+.contact-info {
+    margin-top: 1.5rem;
+    font-size: 0.95rem;
+    color: #555;
+}
+.contact-info a {
+    color: #2E8B57; /* Green for links */
+    font-weight: 600;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+.contact-info a:hover {
+    color: #3CB371;
+    text-decoration: underline;
+}
+
+/* Loading Overlay */
+#loading-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #fdfaf6; /* Matches body background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    transition: opacity 0.5s ease-out; /* Fade out effect */
+}
+#loading-overlay.hidden {
+    opacity: 0;
+    pointer-events: none; /* Allows clicks on content underneath once hidden */
+}
+
+/* Loading Logo Animation */
+.loading-logo {
+    width: 100px; /* Size of the logo */
+    height: 100px;
+    animation: spin 2s linear infinite; /* Spin animation */
+}
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+/* Styles for the SVG elements */
+.ring-path {
+    fill: none;
+    stroke: #DAA520; /* Goldenrod color for rings */
+    stroke-width: 8;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
